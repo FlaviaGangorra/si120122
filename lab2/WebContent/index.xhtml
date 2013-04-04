@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title><ui:insert name="title">lab2</ui:insert></title>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+
+		<h:panelGrid columns="4" cellpadding="5">
+			<h:outputLabel for="name" value="Nome:" style="font-weight:bold" />
+
+			<p:commandButton ajax="false" action="#{SistemaBean.cadastrarTexto}" value="Cadastrar novo texto" style="height:35px; width:100px"/>
+
+
+			<p:commandButton ajax="false" action="#{SistemaBean.recombinarTexto}" value="Recombinar um texto" style="height:35px; width:100px"/>
+			
+			<p:inputText id="insertMessage" value="#{timelineBean.link}" style="position: absolute; top: 200px; left: 100px; height:60px; width:345px"/>
+			
+			<p:commandButton ajax="false" value="cadastar" action="#{SistemaBean.cadastrarTexto}" style="position: absolute; top:265px; left:240px;height:35px; width:100px"/>
+			<p:commandButton ajax="false" value="cancelar"  style="position: absolute; top:365px; left:240px;height:35px; width:200px"/>
+			<h:outputText value="#{SistemaBean.mensagem}" style="position: absolute; top: 140px; left: 230px; font-size:18;;font-family: Trebuchet, Helvetica, Arial;"/>
+			
+			<br/>
+
+			<p:outputPanel id="display" style="display:block;margin-top:10px;">
+				<h:outputText id="bemVindo" value="Bem vindo: #{testeBean.nome}"
+					rendered="#{not empty testeBean.nome}" />
+			</p:outputPanel>
+
+		</h:panelGrid>
+
+	</h:form>
+
+
+</h:body>
+</html>
