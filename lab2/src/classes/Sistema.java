@@ -15,4 +15,8 @@ public class Sistema {
 	public String adicionaLinhaRecombinada(){
 		return dados.adicionaLinhaRecombinada();
 	}
+	
+	public String getTexto(){
+		return dados.getTexto();
+	}
 }

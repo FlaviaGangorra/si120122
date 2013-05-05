@@ -11,6 +11,7 @@ public class ManipuladorDeDados {
 
 	private Recombinacao rec = null;
 	private String nomeTexto = "";
+	private String textoLido = "";
 	
 	public boolean gravaNovoTexto(String texto) {
 		boolean foiGravado = false;
@@ -32,9 +33,16 @@ public class ManipuladorDeDados {
 	private String pegaNomeDoTexto(String texto) {
 		String nome = "";
 		String[] palavras = texto.split(" "); 
-		for (int i = 0; i < 12; i++) {
-			nome += palavras[i] + " ";
+		if (palavras.length >= 12) {
+			for (int i = 0; i < 12; i++) {
+				nome += palavras[i] + " ";
+			}
+		}else{
+			for (int i = 0; i < palavras.length; i++) {
+				nome += palavras[i] + " ";
+			}
 		}
+		
 		return nome.trim();
 	}
 
@@ -81,7 +89,8 @@ public class ManipuladorDeDados {
 		}catch (IOException e) {  
             e.printStackTrace();  
         }
-
+		
+		this.textoLido = textoLido;
 		return textoLido;
 	}
 
@@ -90,4 +99,7 @@ public class ManipuladorDeDados {
 		this.nomeTexto = nomeTexto;
 	}
 
+	public String getTexto(){
+		return textoLido;
+	}
 }
